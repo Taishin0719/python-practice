@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPEWWhaPYKgUbZGIfo6vDUs",
+      "authorship_tag": "ABX9TyP7ObfMHFpBSQPdz4w3J2q7",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -2801,9 +2801,88 @@
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "def softmax(a):\n",
+        "  c = np.max(a)\n",
+        "  exp_a = np.exp(a - c) # オーバーフロー対策\n",
+        "  sum_exp_a = np.sum(exp_a)\n",
+        "  y = exp_a / sum_exp_a\n",
+        "\n",
+        "  return y"
+      ],
       "metadata": {
         "id": "ZvZc52bvnvzU"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "VTTrJQSzh_v3"
+      },
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = np.array([0.3, 2.9, 4.0])\n",
+        "y = softmax(a)\n",
+        "print(y)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HgVlqtmGieFX",
+        "outputId": "8470dd3e-256d-4765-ae7a-52717c7b61c4"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0.01821127 0.24519181 0.73659691]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.sum(y)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Uta2ZtoMiX2O",
+        "outputId": "a803d457-2fc1-4ad0-d17a-dafddf089103"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "np.float64(1.0)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "3GD8b7_FoqfK"
       },
       "execution_count": null,
       "outputs": []
